@@ -1,22 +1,22 @@
 <x-app-layout>
 	<aside class="relative bg-purple-300 h-screen w-64 hidden sm:block shadow-xl">
 		<div class="p-6">
-			<a href="index.html" class="text-neutral-900 text-3xl font-semibold uppercase hover:text-violet-950">L'Image</a>
+			<a href="index.html" class="text-violet-950 text-3xl font-semibold uppercase hover:opacity-75">L'Image</a>
 		</div>
 		<nav class="text-white text-base font-semibold pt-3 px-3">
-			<a href="#" class="flex items-center text-white opacity-75 bg-violet-950 hover:opacity-100 py-4 pl-6 nav-item my-4 rounded-md" data-page="citas">
+			<a href="#" class="flex items-center text-white opacity-100 bg-violet-950 hover:opacity-75 py-4 pl-6 nav-item my-4 rounded-md" data-page="citas">
 				<i class="fas fa-calendar mr-3"></i>
 				Citas Programadas
 			</a>
-			<a href="#" class="flex items-center text-white opacity-75 bg-violet-950 hover:opacity-100 py-4 pl-6 nav-item rounded-md" data-page="promociones">
+			<a href="#" class="flex items-center text-white opacity-100 bg-violet-950 hover:opacity-75 py-4 pl-6 nav-item rounded-md" data-page="promociones">
 				<i class="fas fa-table mr-3"></i>
 				Promociones
 			</a>
-			<a href="#" class="flex items-center text-white opacity-75 bg-violet-950 hover:opacity-100 py-4 pl-6 nav-item my-4 rounded-md" data-page="transacciones">
+			<a href="#" class="flex items-center text-white opacity-100 bg-violet-950 hover:opacity-75 py-4 pl-6 nav-item my-4 rounded-md" data-page="transacciones">
 				<i class="fas fa-align-left mr-3"></i>
 				Transacciones
 			</a>
-			<a href="#" class="flex items-center text-white opacity-75 bg-violet-950 hover:opacity-100 py-4 pl-6 nav-item rounded-md" data-page="reporte">
+			<a href="#" class="flex items-center text-white opacity-100 bg-violet-950 hover:opacity-75 py-4 pl-6 nav-item rounded-md" data-page="reporte">
 				<i class="fas fa-tablet-alt mr-3"></i>
 				Reporte
 			</a>
