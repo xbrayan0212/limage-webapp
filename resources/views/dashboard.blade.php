@@ -5,7 +5,7 @@
 		</div>
 		<nav class="text-white text-base font-semibold pt-3 px-3">
 			<a href="#" class="flex items-center text-white opacity-75 bg-violet-950 hover:opacity-100 py-4 pl-6 nav-item my-4 rounded-md" data-page="citas">
-				<i class="fas fa-sticky-note mr-3"></i>
+				<i class="fas fa-calendar mr-3"></i>
 				Citas Programadas
 			</a>
 			<a href="#" class="flex items-center text-white opacity-75 bg-violet-950 hover:opacity-100 py-4 pl-6 nav-item rounded-md" data-page="promociones">
@@ -19,10 +19,6 @@
 			<a href="#" class="flex items-center text-white opacity-75 bg-violet-950 hover:opacity-100 py-4 pl-6 nav-item rounded-md" data-page="reporte">
 				<i class="fas fa-tablet-alt mr-3"></i>
 				Reporte
-			</a>
-			<a href="#" class="flex items-center text-white opacity-75 bg-violet-950 hover:opacity-100 py-4 pl-6 nav-item my-4 rounded-md" data-page="calendar">
-				<i class="fas fa-calendar mr-3"></i>
-				Calendar
 			</a>
 		</nav>
 	</aside>
