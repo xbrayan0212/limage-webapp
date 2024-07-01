@@ -16,7 +16,7 @@ Este proyecto es una aplicación web diseñada para un salón de belleza, propor
 3. **Registro de Transacciones**: Registro y seguimiento de todas las transacciones financieras realizadas en el salón.
 4. **Administración de Promociones**: Crear, editar y publicar promociones para atraer y retener clientes.
 
-Esta aplicación está construida con Laravel 10 y utiliza Vite para la gestión de activos, ofreciendo una experiencia de usuario fluida y rápida. El sistema de autenticación asegura que solo usuarios autorizados puedan acceder a las funcionalidades administrativas, manteniendo la seguridad y confidencialidad de la información.
+Esta aplicación está construida con Laravel 11 y utiliza Vite para la gestión de activos, ofreciendo una experiencia de usuario fluida y rápida. El sistema de autenticación asegura que solo usuarios autorizados puedan acceder a las funcionalidades administrativas, manteniendo la seguridad y confidencialidad de la información.
 
 ## Requisitos
 
@@ -30,13 +30,13 @@ Esta aplicación está construida con Laravel 10 y utiliza Vite para la gestión
 1. Clona el repositorio:
 
     ```bash
-    git clone https://github.com/tu-usuario/tu-repositorio.git
+    git clone https://github.com/ramxv/limage-webapp.git
     ```
 
 2. Cambia al directorio del proyecto:
 
     ```bash
-    cd tu-repositorio
+    cd limage-webapp
     ```
 
 3. Instala las dependencias de Composer:
@@ -65,11 +65,97 @@ Esta aplicación está construida con Laravel 10 y utiliza Vite para la gestión
 
 7. Configura tu archivo `.env` con las credenciales de tu base de datos.
 
-8. Ejecuta las migraciones:
+8. Ejecuta las migraciones en orden:
 
-    ```bash
-    php artisan migrate
-    ```
+   ```bash
+   php artisan migrate:reset
+   ```
+
+    Ejecuta las migraciones en el siguiente orden para evitar conflictos con claves foráneas:
+
+- Crear `tipos_tx`
+
+  ```bash
+   # Copia el path relativo del archivo de migración y pégalo aquí:
+  php artisan migrate --path=/database/migrations/2024_06_22_000000_create_tipos_tx_table.php
+  ```
+
+- Crear `empleados`
+
+  ```bash
+  # Copia el path relativo del archivo de migración y pégalo aquí:
+  php artisan migrate --path=/database/migrations/2024_06_22_000001_create_empleados_table.php
+  ```
+
+- Crear `servicio`
+
+  ```bash
+  # Copia el path relativo del archivo de migración y pégalo aquí:
+  php artisan migrate --path=/database/migrations/2024_06_22_000002_create_servicio_table.php
+  ```
+
+- Crear `forma_pago`
+
+  ```bash
+  # Copia el path relativo del archivo de migración y pégalo aquí:
+  php artisan migrate --path=/database/migrations/2024_06_22_000003_create_forma_pago_table.php
+  ```
+
+- Crear `proveedores`
+
+  ```bash
+  # Copia el path relativo del archivo de migración y pégalo aquí:
+  php artisan migrate --path=/database/migrations/2024_06_22_000004_create_proveedores_table.php
+  ```
+
+- Crear `clientes`
+
+  ```bash
+  # Copia el path relativo del archivo de migración y pégalo aquí:
+  php artisan migrate --path=/database/migrations/2024_06_22_000005_create_clientes_table.php
+  ```
+
+- Crear `productos`
+
+  ```bash
+  # Copia el path relativo del archivo de migración y pégalo aquí:
+  php artisan migrate --path=/database/migrations/2024_06_22_000006_create_productos_table.php
+  ```
+
+- Crear `transaccion`
+
+  ```bash
+  # Copia el path relativo del archivo de migración y pégalo aquí:
+  php artisan migrate --path=/database/migrations/2024_06_22_000007_create_transaccion_table.php
+  ```
+
+- Crear `registro_tx_empleados`
+
+  ```bash
+  # Copia el path relativo del archivo de migración y pégalo aquí:
+  php artisan migrate --path=/database/migrations/2024_06_22_000008_create_registro_tx_empleados_table.php
+  ```
+
+- Crear `agendar_cita`
+
+  ```bash
+  # Copia el path relativo del archivo de migración y pégalo aquí:
+  php artisan migrate --path=/database/migrations/2024_06_22_000009_create_agendar_cita_table.php
+  ```
+
+- Crear `reporte_financiero`
+
+  ```bash
+  # Copia el path relativo del archivo de migración y pégalo aquí:
+  php artisan migrate --path=/database/migrations/2024_06_22_000010_create_reporte_financiero_table.php
+  ```
+
+- Crear `comprobante_digital`
+
+  ```bash
+  # Copia el path relativo del archivo de migración y pégalo aquí:
+  php artisan migrate --path=/database/migrations/2024_06_22_000011_create_comprobante_digital_table.php
+  ```
 
 9. Ejecuta Vite para el desarrollo:
 
@@ -85,7 +171,7 @@ Esta aplicación está construida con Laravel 10 y utiliza Vite para la gestión
 
 ## Creación de Ramas
 
-Para mantener un flujo de trabajo organizado, sigue estas reglas al crear ramas:
+Para mantener un flujo de trabajo organizado, seguiremos estas reglas al crear ramas:
 
 1. **Rama Principal (`main`)**:
     - La rama principal que siempre debe estar en un estado de producción estable.
@@ -131,7 +217,7 @@ Para mantener un flujo de trabajo organizado, sigue estas reglas al crear ramas:
 
 ## Convenciones para Commits
 
-Para mantener un historial de commits claro y consistente, sigue estas reglas:
+Para mantener un historial de commits claro y consistente, seguiremos estas reglas:
 
 1. **Formato de Mensajes de Commit**:
     - Usa el siguiente formato para los mensajes de commit:
