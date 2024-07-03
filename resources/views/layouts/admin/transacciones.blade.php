@@ -28,7 +28,7 @@
 					<label for="propina" class="block text-sm font-medium text-gray-700">Propina</label>
 					<input type="number" id="propina" name="propina" class="mt-1 block w-full py-2 px-3 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-violet-500 focus:border-violet-500 sm:text-sm" placeholder="0.00">
 				</div>
-				<button type="submit" class="w-full py-2 px-4 bg-purple-600 text-white font-bold rounded-md hover:bg-purple-700 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-opacity-50">Registrar Transacción</button>
+				<button type="submit" class="w-1/2 py-2 px-4 bg-purple-600 text-white font-bold rounded-md hover:bg-purple-700 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-opacity-50">Registrar Transacción <i class="ml-3 fa-solid fa-download"></i></button>
 			</form>
 		</div>
 
@@ -40,7 +40,7 @@
 					<label for="correo" class="block text-sm font-medium text-gray-700">Correo del cliente</label>
 					<input type="email" id="correo" name="correo" class="mt-1 block w-full py-2 px-3 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-violet-500 focus:border-violet-500 sm:text-sm">
 				</div>
-				<button type="submit" class="w-full py-2 px-4 bg-purple-600 text-white font-bold rounded-md hover:bg-purple-700 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-opacity-50">Enviar Comprobante</button>
+				<button type="submit" class="w-1/2 py-2 px-4 bg-purple-600 text-white font-bold rounded-md hover:bg-purple-700 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-opacity-50">Enviar Comprobante <i class="ml-3 fa-solid fa-paper-plane"></i></button>
 			</form>
 		</div>
 	</div>
