@@ -23,7 +23,7 @@
 							<input type="month" id="mes" name="mes" class="mt-1 block w-full py-2 px-3 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
 						</div>
 						<div class="flex justify-center">
-							<button type="submit" class="w-1/2 py-2 px-4 bg-purple-600 text-white font-bold rounded-md hover:bg-purple-700 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-opacity-50">Generar Reporte</button>
+							<button type="submit" class="w-1/2 py-2 px-4 bg-purple-600 text-white font-bold rounded-md hover:bg-purple-700 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-opacity-50">Generar Reporte <i class="ml-3 fa-solid fa-download"></i></button>
 						</div>
 					</form>
 				</div>
