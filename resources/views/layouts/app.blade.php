@@ -33,14 +33,5 @@
                 {{ $slot }}
             </main>
         </div>
-				<script>
-					$(document).ready(function(){
-							$('a[data-page]').click(function(e){
-									e.preventDefault();
-									var page = $(this).data('page');
-									$('#contenido').load('/' + page);
-							});
-					});
-			</script>
     </body>
 </html>
