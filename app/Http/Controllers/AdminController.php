@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\TipoTX;
+use App\Models\Servicio;
 use Illuminate\Http\Request;
 
 class AdminController extends Controller
@@ -24,7 +26,12 @@ class AdminController extends Controller
 
     public function transacciones()
     {
-        return view('admin.transacciones');
+       // Recuperar todos los tipos de transacción desde la base de datos
+			 $metodosPago = TipoTX::all();
+			 $servicios = Servicio::all()->groupBy('tipo_servicio');;
+
+			 // Pasar los métodos de pago a la vista
+			 return view('admin.transacciones', compact('metodosPago', 'servicios'));
     }
 
     public function reporte()
