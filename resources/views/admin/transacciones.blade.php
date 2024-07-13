@@ -2,9 +2,8 @@
 
 @section('content')
 
-<div class="w-1/2 flex flex-col mt-4">
-	<div class="w-full overflow-x-hidden border-t flex">
-		<main class="w-full flex-grow p-4 bg-white rounded-lg shadow-md">
+<div class="w-9/12 flex mt-4">
+		<main class="w-full flex p-4 bg-white rounded-lg shadow-md gap-12">
 			<div class="w-full">
 				<h2 class="text-2xl font-bold mb-4">REGISTRO DE TRANSACCIÓN</h2>
 				<form>
@@ -37,7 +36,7 @@
 			</div>
 
 			<!-- Envío de Comprobante -->
-			<div class="w-2/6">
+			<div class="w-full">
 				<h2 class="text-2xl font-bold mb-4">ENVÍO DE COMPROBANTE</h2>
 				<form>
 					<div class="mb-4">
@@ -48,6 +47,5 @@
 				</form>
 			</div>
 		</main>
-	</div>
 </div>
 @endsection
