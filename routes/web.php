@@ -10,41 +10,16 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-
-// Route::get('/citas', function () {
-// 	return view('layouts.admin.citas');
-// });
-
-// Route::get('/promociones', function () {
-// 	return view('layouts.admin.promociones');
-// });
-
-// Route::get('/transacciones', function () {
-// 	return view('layouts.admin.transacciones');
-// });
-
-// Route::get('/reporte', function () {
-// 	return view('layouts.admin.reporte');
-// });
-
-// Route::get('/calendar', function () {
-// 	return view('layouts.admin.calendar');
-// });
-
-// Route::get('/servicios', function(){
-// 	return view('layouts.admin.servicio.create');
-// });
-
 Route::get('/admin/dashboard', [AdminController::class, 'dashboard'])->name('admin.dashboard');
 Route::get('/admin/citas', [AdminController::class, 'citas'])->name('admin.citas');
 Route::get('/admin/promociones', [AdminController::class, 'promociones'])->name('admin.promociones');
 Route::get('/admin/transacciones', [AdminController::class, 'transacciones'])->name('admin.transacciones');
+Route::get('/admin/comprobante', [AdminController::class, 'comprobante'])->name('admin.comprobante');
 Route::get('/admin/reporte', [AdminController::class, 'reporte'])->name('admin.reporte');
 Route::get('/admin/servicios', [AdminController::class, 'servicios'])->name('admin.servicio.create');
 
 Route::get('servicio/create', [ServicioController::class, 'create'])->name('servicio.create');
 Route::post('servicio', [ServicioController::class, 'store'])->name('servicio.store');
-
 
 Route::get('/dashboard', function () {
     return view('dashboard');
