@@ -1,4 +1,4 @@
-<aside class="relative bg-purple-300 h-screen w-64 hidden sm:block">
+<aside class="relative bg-purple-300 h-screen w-64 hidden sm:block sticky top-0">
 	<div class="p-6">
 			<a href="{{ route('admin.dashboard') }}" class="text-violet-950 text-3xl font-semibold uppercase hover:opacity-75">L'Image</a>
 	</div>
@@ -12,9 +12,13 @@
 					Promociones
 			</a>
 			<a href="{{ route('admin.transacciones') }}" class="flex items-center text-white opacity-100 bg-violet-950 hover:opacity-75 py-4 pl-6 nav-item my-4 rounded-md">
-					<i class="fas fa-align-left mr-3"></i>
+				<i class="fa-solid fa-money-bill mr-3"></i>
 					Transacciones
 			</a>
+			<a href="{{ route('admin.comprobante') }}" class="flex items-center text-white opacity-100 bg-violet-950 hover:opacity-75 py-4 pl-6 nav-item my-4 rounded-md">
+				<i class="fa-solid fa-ticket mr-3"></i>
+				Comprobante
+		</a>
 			<a href="{{ route('admin.reporte') }}" class="flex items-center text-white opacity-100 bg-violet-950 hover:opacity-75 py-4 pl-6 nav-item my-4 rounded-md">
 					<i class="fas fa-tablet-alt mr-3"></i>
 					Reporte
