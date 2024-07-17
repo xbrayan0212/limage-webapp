@@ -9,7 +9,7 @@ class Transaccion extends Model
 {
 	use HasFactory;
 
-	protected $table = 'transaccion'; // Asegúrate de que el nombre de la tabla sea correcto
+	protected $table = 'transaccion';
 	protected $primaryKey = 'idTransaccion';
 
 	protected $fillable = [
