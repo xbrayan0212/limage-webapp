@@ -1,14 +1,16 @@
-<section class="flex flex-wrap justify-around items-center w-full">
-    <div class="w-[650px] max-w-full p-5">
+<section class="flex flex-wrap justify-around items-center w-full my-24 py-24 bg-black text-white">
+    <div class="w-[850px] max-w-full p-5">
         <div class="font-roboto">
-            <h1 class="text-[clamp(1em,2.5vw,5em)] py-5">
+            <h1 class="text-[clamp(1em,2.5vw,5em)] py-0">
                 Sobre Nosotros
             </h1>
-            <h2 class="text-[clamp(1em,1.5vw,4em)] text-gray-400 py-5">
-                ¡Conocenos!
+            <h2 class="text-[clamp(1em,1.5vw,4em)] text-gray-300 py-5">
+                ¡Conócenos!
             </h2>
-            <p class="text-[clamp(1em,0.5vw,4em)] leading-8 text-justify">
+            <p class="text-[clamp(1em,1vw,4em)] leading-10 text-justify">
                 Bienvenido a [Nombre del Salón de Belleza], tu destino premium para el cuidado y embellecimiento personalizado en [ubicación]. En nuestro salón, fusionamos la pasión por la belleza con la excelencia en el servicio para ofrecerte una experiencia única y rejuvenecedora en cada visita.
+
+                En [Nombre del Salón de Belleza], nos dedicamos a resaltar tu belleza natural a través de un enfoque personalizado. Nuestros expertos estilistas y terapeutas están comprometidos en proporcionarte un servicio de la más alta calidad, utilizando productos de lujo y técnicas innovadoras para garantizar resultados excepcionales.
             </p>
         </div>
     </div>

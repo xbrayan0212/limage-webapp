@@ -18,7 +18,7 @@
        @include('layouts.navigation')
 
         <!--Section pincipal de bienvenida-->
-       <main class="flex items-center justify-around w-full py-10 px-20">
+       <main class="flex items-center justify-around w-full py-10 px-20 ">
         <div class="w-1/2">
             <img src="{{ asset('https://academiadebelleza.edu.co/wp-content/uploads/2023/08/cabecera-cursos-de-belleza-v2.png') }}" alt="" class="w-full">
         </div>
