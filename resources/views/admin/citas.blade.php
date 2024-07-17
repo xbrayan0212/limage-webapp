@@ -6,35 +6,35 @@
         <div class="w-full">
             <h2 class="text-2xl font-bold mb-4 text-center">Lista de Citas</h2>
             <div class="overflow-auto">
-                <table class="min-w-full bg-white">
-                    <thead class="bg-gray-800 text-white">
+                <table class="min-w-full bg-white border border-gray-200">
+                    <thead class="bg-gray-100">
                         <tr>
-                            <th class="py-3 px-4 text-left">
+                            <th class="py-3 px-4 text-left border-b border-gray-300">
                                 <a href="{{ route('admin.citas', ['sortField' => 'idCita', 'sortOrder' => ($sortField === 'idCita' && $sortOrder === 'asc') ? 'desc' : 'asc']) }}">
                                     ID @if ($sortField === 'idCita')<i class="fas fa-sort-{{ $sortOrder === 'asc' ? 'up' : 'down' }}"></i>@endif
                                 </a>
                             </th>
-                            <th class="py-3 px-4 text-left">
+                            <th class="py-3 px-4 text-left border-b border-gray-300">
                                 <a href="{{ route('admin.citas', ['sortField' => 'idEmpleado', 'sortOrder' => ($sortField === 'idEmpleado' && $sortOrder === 'asc') ? 'desc' : 'asc']) }}">
                                     Empleado @if ($sortField === 'idEmpleado')<i class="fas fa-sort-{{ $sortOrder === 'asc' ? 'up' : 'down' }}"></i>@endif
                                 </a>
                             </th>
-                            <th class="py-3 px-4 text-left">
+                            <th class="py-3 px-4 text-left border-b border-gray-300">
                                 <a href="{{ route('admin.citas', ['sortField' => 'idServicio', 'sortOrder' => ($sortField === 'idServicio' && $sortOrder === 'asc') ? 'desc' : 'asc']) }}">
                                     Servicio @if ($sortField === 'idServicio')<i class="fas fa-sort-{{ $sortOrder === 'asc' ? 'up' : 'down' }}"></i>@endif
                                 </a>
                             </th>
-                            <th class="py-3 px-4 text-left">
+                            <th class="py-3 px-4 text-left border-b border-gray-300">
                                 <a href="{{ route('admin.citas', ['sortField' => 'fecha', 'sortOrder' => ($sortField === 'fecha' && $sortOrder === 'asc') ? 'desc' : 'asc']) }}">
                                     Fecha @if ($sortField === 'fecha')<i class="fas fa-sort-{{ $sortOrder === 'asc' ? 'up' : 'down' }}"></i>@endif
                                 </a>
                             </th>
-                            <th class="py-3 px-4 text-left">
+                            <th class="py-3 px-4 text-left border-b border-gray-300">
                                 <a href="{{ route('admin.citas', ['sortField' => 'duracion', 'sortOrder' => ($sortField === 'duracion' && $sortOrder === 'asc') ? 'desc' : 'asc']) }}">
                                     Duración @if ($sortField === 'duracion')<i class="fas fa-sort-{{ $sortOrder === 'asc' ? 'up' : 'down' }}"></i>@endif
                                 </a>
                             </th>
-                            <th class="py-3 px-4 text-left">
+                            <th class="py-3 px-4 text-left border-b border-gray-300">
                                 <a href="{{ route('admin.citas', ['sortField' => 'status', 'sortOrder' => ($sortField === 'status' && $sortOrder === 'asc') ? 'desc' : 'asc']) }}">
                                     Estado @if ($sortField === 'status')<i class="fas fa-sort-{{ $sortOrder === 'asc' ? 'up' : 'down' }}"></i>@endif
                                 </a>
@@ -43,13 +43,13 @@
                     </thead>
                     <tbody class="text-gray-700">
                         @foreach($citas as $cita)
-                            <tr class="{{ $loop->even ? 'bg-gray-200' : '' }}">
-                                <td class="py-3 px-4">{{ $cita->idCita }}</td>
-                                <td class="py-3 px-4">{{ $cita->empleado->nombre }} {{ $cita->empleado->apellido }}</td>
-                                <td class="py-3 px-4">{{ $cita->servicio->servicio_detalle }}</td>
-                                <td class="py-3 px-4">{{ $cita->fecha }}</td>
-                                <td class="py-3 px-4">{{ $cita->duracion }} minutos</td>
-                                <td class="py-3 px-4">{{ $cita->status }}</td>
+                            <tr class="hover:bg-gray-50 {{ $loop->even ? 'bg-gray-200' : '' }}">
+                                <td class="py-3 px-4 border-b border-gray-200">{{ $cita->idCita }}</td>
+                                <td class="py-3 px-4 border-b border-gray-200">{{ $cita->empleado->nombre }} {{ $cita->empleado->apellido }}</td>
+                                <td class="py-3 px-4 border-b border-gray-200">{{ $cita->servicio->servicio_detalle }}</td>
+                                <td class="py-3 px-4 border-b border-gray-200">{{ $cita->fecha }}</td>
+                                <td class="py-3 px-4 border-b border-gray-200">{{ $cita->duracion }} minutos</td>
+                                <td class="py-3 px-4 border-b border-gray-200">{{ $cita->status }}</td>
                             </tr>
                         @endforeach
                     </tbody>
