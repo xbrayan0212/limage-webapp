@@ -9,7 +9,7 @@ class ServicioController extends Controller
 {
 	public function create()
 	{
-			return view('admin.servicio.create');
+		return view('admin.servicio.create');
 	}
 
 	public function store(Request $request)

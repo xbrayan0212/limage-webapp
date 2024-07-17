@@ -1,10 +1,12 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ServicioController;
+use App\Http\Controllers\TransaccionController;
 use App\Http\Controllers\CitaController;
 use App\Http\Controllers\PromocionController;
 
@@ -15,10 +17,13 @@ Route::get('/', function () {
 Route::get('/admin/dashboard', [AdminController::class, 'dashboard'])->name('admin.dashboard');
 Route::get('/admin/citas', [AdminController::class, 'citas'])->name('admin.citas');
 Route::get('/admin/promociones', [AdminController::class, 'promociones'])->name('admin.promociones');
-Route::get('/admin/transacciones', [AdminController::class, 'transacciones'])->name('admin.transacciones');
+Route::get('/admin/transacciones', [AdminController::class, 'transacciones'])->name('admin.transaccion.create');
 Route::get('/admin/comprobante', [AdminController::class, 'comprobante'])->name('admin.comprobante');
 Route::get('/admin/reporte', [AdminController::class, 'reporte'])->name('admin.reporte');
 Route::get('/admin/servicios', [AdminController::class, 'servicios'])->name('admin.servicio.create');
+
+Route::get('transaccion/create', [TransaccionController::class, 'create'])->name('transaccion.create');
+Route::post('transaccion', [TransaccionController::class, 'store'])->name('transaccion.store');
 
 Route::get('servicio/create', [ServicioController::class, 'create'])->name('servicio.create');
 Route::post('servicio', [ServicioController::class, 'store'])->name('servicio.store');
