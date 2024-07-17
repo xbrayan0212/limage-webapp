@@ -5,6 +5,8 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ServicioController;
+use App\Http\Controllers\CitaController;
+use App\Http\Controllers\PromocionController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -35,3 +37,10 @@ require __DIR__.'/auth.php';
 
 Route::get('/admin/dashboard', [AdminController::class, 'index'])->name('admin.dashboard')->middleware('admin');
 Route::get('/user/dashboard', [UserController::class, 'index'])->name('user.dashboard')->middleware('user');
+
+
+Route::get('/admin/citas', [CitaController::class, 'index'])->name('admin.citas');
+
+
+Route::get('/promociones', 'PromocionController@create')->name('promociones.create');
+Route::post('/promociones', 'PromocionController@store')->name('promociones.store');
