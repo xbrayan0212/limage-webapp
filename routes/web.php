@@ -10,7 +10,7 @@ use App\Http\Controllers\CitaController;
 use App\Http\Controllers\PromocionController;
 
 Route::get('/', function () {
-    return view('welcome');
+	return view('welcome');
 });
 
 Route::get('/admin/dashboard', [AdminController::class, 'dashboard'])->name('admin.dashboard');
@@ -20,6 +20,7 @@ Route::get('/admin/transacciones', [AdminController::class, 'transacciones'])->n
 Route::get('/admin/comprobante', [AdminController::class, 'comprobante'])->name('admin.comprobante');
 Route::get('/admin/reporte', [AdminController::class, 'reporte'])->name('admin.reporte');
 Route::get('/admin/servicios', [AdminController::class, 'servicios'])->name('admin.servicio.create');
+Route::post('admin/comprobante/{id}/enviar', [AdminController::class, 'enviarComprobante'])->name('admin.enviarComprobante');
 
 Route::get('transaccion/create', [TransaccionController::class, 'create'])->name('transaccion.create');
 Route::post('transaccion', [TransaccionController::class, 'store'])->name('transaccion.store');
@@ -28,16 +29,16 @@ Route::get('servicio/create', [ServicioController::class, 'create'])->name('serv
 Route::post('servicio', [ServicioController::class, 'store'])->name('servicio.store');
 
 Route::get('/dashboard', function () {
-    return view('dashboard');
+	return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {
-    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
-    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
-    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+	Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
+	Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
+	Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-require __DIR__.'/auth.php';
+require __DIR__ . '/auth.php';
 
 Route::get('/admin/dashboard', [AdminController::class, 'index'])->name('admin.dashboard')->middleware('admin');
 Route::get('/user/dashboard', [UserController::class, 'index'])->name('user.dashboard')->middleware('user');
