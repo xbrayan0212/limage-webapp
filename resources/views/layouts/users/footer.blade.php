@@ -13,8 +13,8 @@
             <p class="text-sm md:text-base flex items-center justify-center"><i class="fa-regular fa-clock"></i> Horario</p>
             <p class="text-sm md:text-base">
                 Días hábiles <br>
-                Lunes-Viernes 7:00am - 6:00pm <br>
-                Sábados 8:00 am - 6:00pm
+                Lunes-Sábados 9:00am - 8:00pm<br>
+                Domingos 10:00 am - 6:00pm
             </p>
         </div>
     </div>
