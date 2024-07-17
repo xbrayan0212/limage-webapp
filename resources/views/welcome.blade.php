@@ -17,23 +17,24 @@
         <!--navbar-->
        @include('layouts.navigation')
 
-        <!--Section pincipal de bienvenida-->
-       <main class="flex items-center justify-around w-full py-10 px-20 ">
-        <div class="w-1/2">
-            <img src="{{ asset('https://academiadebelleza.edu.co/wp-content/uploads/2023/08/cabecera-cursos-de-belleza-v2.png') }}" alt="" class="w-full">
-        </div>
-        <div class="text-center space-y-4">
-            <h1 class="text-4xl md:text-6xl font-serif text-gray-800">
-                Bienvenidos a <br> L´ Image Beauty
-            </h1>
-            <h2 class="text-xl md:text-3xl font-serif text-gray-800">
-                Salon & supply
-            </h2>
-            <button class="text-sm md:text-base px-4 py-2 bg-gray-400 text-gray-800 rounded-md hover:bg-gray-500">
-                Ver nuestros Servicios
-            </button>
-        </div>
-    </main>
+<!-- Section principal de bienvenida -->
+<main class="flex flex-col md:flex-row items-center justify-around w-full py-10 px-4 md:px-20">
+    <div class="order-2 md:order-1 w-full md:w-1/2 mt-4 md:mt-0">
+        <img src="{{ asset('images/img-bienvenida.png') }}" alt="imagen de Bienvenida" class="w-full md:w-full">
+    </div>
+    <div class="order-1 md:order-2 w-full md:w-1/2 text-center space-y-4">
+        <h1 class="text-4xl md:text-6xl font-serif text-gray-800">
+            Bienvenidos a <br> L´ Image Beauty
+        </h1>
+        <h2 class="text-xl md:text-3xl font-serif text-gray-800">
+            Salon & supply
+        </h2>
+        <button class="text-sm md:text-base px-4 py-2 bg-gray-400 text-gray-800 rounded-md hover:bg-gray-500">
+            Ver nuestros Servicios
+        </button>
+    </div>
+</main>
+
 
     <!--section sobre Nosotros-->
     @include('layouts.users.sobreNosotros')
