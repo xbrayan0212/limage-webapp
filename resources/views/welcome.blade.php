@@ -35,5 +35,13 @@
         </div>
     </main>
 
+    <!--section sobre Nosotros-->
+    @include('layouts.users.sobreNosotros')
+
+    <!--section Ubicacion-->
+    @include('layouts.users.ubicacion')
+
+     <!--footer-->
+     @include('layouts.users.footer')
     </body>
 </html>
