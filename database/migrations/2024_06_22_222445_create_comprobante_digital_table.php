@@ -14,9 +14,6 @@ class CreateComprobanteDigitalTable extends Migration
 			$table->unsignedBigInteger('idTransaccion');
 			$table->foreign('idTransaccion')->references('idTransaccion')->on('transaccion')->onDelete('cascade');
 
-			$table->unsignedBigInteger('idCliente');
-			$table->foreign('idCliente')->references('idCliente')->on('clientes')->onDelete('cascade');
-
 			$table->date('fecha_emision');
 			$table->double('monto');
 			$table->string('detalle', 255)->nullable();
