@@ -2,63 +2,61 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Empleado;
+use App\Models\Productos;
+use App\Models\Servicio;
+use App\Models\TipoTX;
+use App\Models\Transaccion;
 use Illuminate\Http\Request;
 
 class TransaccionController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
-    public function index()
-    {
-        //
-    }
+	public function create()
+	{
+			$servicios = Servicio::all(); // Asume que tienes un modelo Servicio
+			$empleados = Empleado::all(); // Asume que tienes un modelo Empleado
+			$metodosPago = TipoTX::all(); // Asume que tienes un modelo FormaPago
+			$productos = Productos::all(); // Asume que tienes un modelo Producto
 
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
-    {
-        //
-    }
+			return view('admin.transaccion.create', compact('servicios', 'empleados', 'metodosPago', 'productos'));
+	}
 
-    /**
-     * Store a newly created resource in storage.
-     */
-    public function store(Request $request)
-    {
-        //
-    }
+	public function store(Request $request)
+	{
+			$request->validate([
+					'fecha' => 'required|date',
+					'idServicio' => 'required|exists:servicio,idServicio',
+					'idEmpleado' => 'required|exists:empleados,idEmpleado',
+					'precio_servicio' => 'required|numeric',
+					'idTipoTX' => 'required|exists:tipos_tx,idTipoTX',
+					'itbms' => 'nullable|numeric',
+					'descuento_producto' => 'nullable|numeric',
+					'propina' => 'nullable|numeric',
+					'email' => 'nullable|email',
+					'idProducto' => 'nullable|exists:productos,idProducto',
+					'descripcion' => 'nullable|string|max:255',
+					'total_transaccion' => 'required|numeric',
+					'monto_salon' => 'required|numeric',
+					'monto_empleado' => 'required|numeric',
+			]);
 
-    /**
-     * Display the specified resource.
-     */
-    public function show(string $id)
-    {
-        //
-    }
+			Transaccion::create([
+				'fecha' => $request->fecha,
+				'idServicio' => $request->idServicio,
+				'idEmpleado' => $request->idEmpleado,
+				'precio_servicio' => $request->precio_servicio,
+				'idTipoTX' => $request->idTipoTX,
+				'itbms' => $request->itbms,
+				'descuento_producto' => $request->descuento_producto,
+				'propina' => $request->propina,
+				'email' => $request->email,
+				'idProducto' => $request->idProducto,
+				'descripcion' => $request->descripcion,
+				'total_transaccion' => $request->total_transaccion,
+				'monto_salon' => $request->monto_salon,
+				'monto_empleado' => $request->monto_empleado,
+		]);
 
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(string $id)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, string $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(string $id)
-    {
-        //
-    }
+		return redirect()->route('transaccion.create')->with('success', 'Transacción registrada exitosamente');
+	}
 }
