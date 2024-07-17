@@ -8,10 +8,18 @@
                         <x-application-logo class="block h-9 w-auto text-gray-800" />
                     </a>
                 </div>
+                <!-- Navigation Links -->
+				<div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
+                    <x-nav-link :href="route('home')" :active="request()->routeIs('home')">
+                            {{ __('Inicio') }}
+                    </x-nav-link>
+                </div>
                 <!-- Links visible only on large screens -->
                 <div class="hidden sm:flex sm:items-center sm:space-x-4 ms-10">
-                    <a href="#" class="text-black hover:text-red-500 transition text-sm">Promociones</a>
+                    <a href="#" class="text-black hover:text-red-500 transition text-sm">Servicios</a>
                     <a href="#" class="text-black hover:text-red-500 transition text-sm">Agendar Cita</a>
+                    <a href="#" class="text-black hover:text-red-500 transition text-sm">Promociones</a>
+
                 </div>
             </div>
             <!-- User Authentication Links -->
@@ -32,7 +40,7 @@
                             </x-slot>
                             <x-slot name="content">
                                 <x-dropdown-link :href="route('profile.edit')">
-                                    {{ __('Profile') }}
+                                    {{ __('Mi Cuenta') }}
                                 </x-dropdown-link>
                                 <!-- Authentication -->
                                 <form method="POST" action="{{ route('logout') }}">
@@ -40,7 +48,7 @@
                                     <x-dropdown-link :href="route('logout')"
                                         onclick="event.preventDefault();
                                                 this.closest('form').submit();">
-                                        {{ __('Log Out') }}
+                                        {{ __('Cerrar Sesión') }}
                                     </x-dropdown-link>
                                 </form>
                             </x-slot>
