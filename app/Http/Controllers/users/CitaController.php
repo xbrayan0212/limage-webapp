@@ -151,6 +151,7 @@ class CitaController extends Controller
     }
 
     return back()->with('success', 'Formulario enviado correctamente.');
+    
 }
 
 }
