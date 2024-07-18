@@ -41,6 +41,8 @@
                     </div>
                 </section>
             </form>
+               <!-- Incluir el componente de modal -->
+        <x-confirmation-modal />
 
         </main>
 
@@ -63,9 +65,15 @@
 
             // Si se selecciona un mes válido, agregar las opciones de día
             if (selectedMonth) {
-                var numDaysInMonth = new Date(new Date().getFullYear(), selectedMonth, 0).getDate();
+                var today = new Date();
+                var currentYear = today.getFullYear();
+                var currentDay = today.getDate();
+                var numDaysInMonth = new Date(currentYear, selectedMonth, 0).getDate();
 
-                for (var day = 1; day <= numDaysInMonth; day++) {
+                // Determinar el primer día a mostrar
+                var startDay = (parseInt(selectedMonth) === today.getMonth() + 1) ? currentDay : 1;
+
+                for (var day = startDay; day <= numDaysInMonth; day++) {
                     var option = document.createElement('option');
                     option.value = day;
                     option.text = day;
@@ -113,5 +121,6 @@
         // Agregar evento de cambio al select del día
         document.getElementById('dia').addEventListener('change', updateAvailableHours);
     </script>
+
 </body>
 </html>
