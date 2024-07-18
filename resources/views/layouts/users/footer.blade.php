@@ -1,4 +1,4 @@
-<footer class="mt-24 pb-8 bg-gray-800 text-white rounded-lg">
+<footer class=" pb-8 bg-gray-800 text-white rounded-lg">
     <div class="flex flex-wrap justify-around items-start pt-8 mx-auto">
         <div class="text-center mb-6">
             <p class="text-sm md:text-base">L' Image Beauty</p>
