@@ -5,6 +5,7 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ServicioController;
+use App\Http\Controllers\users\CitaController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -65,3 +66,8 @@ require __DIR__.'/auth.php';
 
 Route::get('/admin/dashboard', [AdminController::class, 'index'])->name('admin.dashboard')->middleware('admin');
 Route::get('/user/dashboard', [UserController::class, 'index'])->name('user.dashboard')->middleware('user');
+
+/*agendar cita rutas*/
+Route::get('users/agendar-cita', [CitaController::class, 'create'])->name('users.agendarCita');
+Route::get('/users/agendarCita', [CitaController::class, 'showForm'])->name('agendarCita');
+Route::post('/submit-form', [CitaController::class, 'submitForm'])->name('submitForm');
