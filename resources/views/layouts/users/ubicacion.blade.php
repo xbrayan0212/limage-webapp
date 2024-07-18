@@ -1,4 +1,4 @@
-<section class="flex flex-wrap justify-center items-center w-full mt-30">
+<section class="flex flex-wrap justify-center items-center w-full mt-30 mb-20">
     <div class="min-w-[380px] p-8 w-[35%] m-1 rounded-lg">
         <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d1970.8020567305052!2d-79.74247672196884!3d8.916345767288865!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2spa!4v1716083342410!5m2!1sen!2spa" class="w-full h-[300px] rounded-3xl border-0" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
         <h1 class="text-[clamp(1em,2.5vw,5em)] mt-8 flex items-center">
