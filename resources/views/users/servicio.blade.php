@@ -10,7 +10,7 @@
 
     <!-- Navbar -->
     @include('layouts.navigation')
-    <div class="relative w-full h-[75vh] bg-cover bg-center" style="background-image: url('https://images.unsplash.com/photo-1620331313174-3c6cfd5e292a?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');">
+    <div class="relative w-full h-[75vh] bg-cover bg-center" style="background-image: url('{{ asset('images/img-servicios.jpg') }}');">
         <div class="flex items-center justify-center h-full bg-black bg-opacity-50">
             <div class="text-center space-y-4">
                 <h1 class="text-4xl md:text-6xl font-serif text-white">
