@@ -4,8 +4,8 @@ namespace App\Http\Controllers\users;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Models\Servicio; // Importar el modelo Servicio
-use App\Models\Empleado; // Importar el modelo Empleado
+use App\Models\Servicio;
+use App\Models\Empleado;
 use App\Models\Cita;
 use Illuminate\Support\Facades\Auth;
 
@@ -151,7 +151,7 @@ class CitaController extends Controller
     }
 
     return back()->with('success', 'Formulario enviado correctamente.');
-    
+
 }
 
 }
