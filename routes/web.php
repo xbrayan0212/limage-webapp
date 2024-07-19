@@ -10,6 +10,7 @@ use App\Http\Controllers\CitaController;
 use App\Http\Controllers\PromocionController;
 use App\Http\Controllers\users\CitasController;
 use App\Http\Controllers\users\ServiciosPageController;
+use App\Http\Controllers\users\PromocionesPageController;
 
 Route::get('/', function () {
 	return view('welcome');
@@ -53,9 +54,11 @@ Route::get('/user/dashboard', [UserController::class, 'index'])->name('user.dash
 
 Route::get('/admin/citas', [CitaController::class, 'index'])->name('admin.citas');
 
+Route::get('/promociones', [PromocionController::class, 'index'])->name('promociones.index');
+Route::post('/promociones', [PromocionController::class, 'store'])->name('promociones.store');
+Route::delete('/promociones/{promocion}', [PromocionController::class, 'destroy'])->name('promociones.destroy');
 
-Route::get('/promociones', 'PromocionController@create')->name('promociones.create');
-Route::post('/promociones', 'PromocionController@store')->name('promociones.store');
+
 /*agendar cita rutas*/
 Route::get('users/agendar-cita', [CitasController::class, 'create'])->name('users.agendarCita');
 Route::get('/users/agendarCita', [CitasController::class, 'showForm'])->name('agendarCita');
@@ -63,3 +66,6 @@ Route::post('/submit-form', [CitasController::class, 'submitForm'])->name('submi
 
 /*pagina de servicios rutas*/
 Route::get('users/servicio', [ServiciosPageController::class,'create'])->name('users.servicios');
+
+/*pagina de promociones*/
+Route::get('users/promociones', [PromocionesPageController::class, 'create'])->name('users.promociones');
