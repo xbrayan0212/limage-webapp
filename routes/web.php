@@ -56,6 +56,7 @@ Route::get('/admin/citas', [CitaController::class, 'index'])->name('admin.citas'
 
 Route::get('/promociones', 'PromocionController@create')->name('promociones.create');
 Route::post('/promociones', 'PromocionController@store')->name('promociones.store');
+
 /*agendar cita rutas*/
 Route::get('users/agendar-cita', [CitasController::class, 'create'])->name('users.agendarCita');
 Route::get('/users/agendarCita', [CitasController::class, 'showForm'])->name('agendarCita');

@@ -2,32 +2,46 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Promocion;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class PromocionController extends Controller
 {
-    public function create()
+    public function index()
     {
-        return view('promociones.create');
+        $promociones = Promocion::all();
+        return view('admin.promociones', compact('promociones'));
     }
 
     public function store(Request $request)
     {
-        // Validar y manejar la subida del archivo
         $request->validate([
             'titulo' => 'required|string|max:255',
             'descripcion' => 'required|string',
-            'foto' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
+            'imagen' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         ]);
 
-        if ($request->hasFile('foto')) {
-            $file = $request->file('foto');
-            $filename = time() . '.' . $file->getClientOriginalExtension();
-            $file->move(public_path('images/promociones'), $filename);
+        $imageName = time().'.'.$request->imagen->extension();
+        $request->imagen->move(public_path('images'), $imageName);
 
-            // Aquí puedes almacenar el nombre del archivo en la base de datos si es necesario
+        Promocion::create([
+            'titulo' => $request->titulo,
+            'descripcion' => $request->descripcion,
+            'imagen' => $imageName,
+        ]);
+
+        return redirect()->route('admin.promociones.index')->with('success', 'Promoción creada exitosamente.');
+    }
+
+    public function destroy(Promocion $promocion)
+    {
+        if (file_exists(public_path('images/'.$promocion->imagen))) {
+            unlink(public_path('images/'.$promocion->imagen));
         }
 
-        return redirect()->route('promociones.create')->with('success', 'Promoción subida exitosamente');
+        $promocion->delete();
+        return redirect()->route('admin.promociones.index')->with('success', 'Promoción eliminada exitosamente.');
     }
 }
+
