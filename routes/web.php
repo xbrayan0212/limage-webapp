@@ -53,9 +53,10 @@ Route::get('/user/dashboard', [UserController::class, 'index'])->name('user.dash
 
 Route::get('/admin/citas', [CitaController::class, 'index'])->name('admin.citas');
 
+Route::get('/promociones', [PromocionController::class, 'index'])->name('promociones.index');
+Route::post('/promociones', [PromocionController::class, 'store'])->name('promociones.store');
+Route::delete('/promociones/{promocion}', [PromocionController::class, 'destroy'])->name('promociones.destroy');
 
-Route::get('/promociones', 'PromocionController@create')->name('promociones.create');
-Route::post('/promociones', 'PromocionController@store')->name('promociones.store');
 
 /*agendar cita rutas*/
 Route::get('users/agendar-cita', [CitasController::class, 'create'])->name('users.agendarCita');

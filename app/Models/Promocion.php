@@ -2,26 +2,13 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Migrations\Migration;
-use Illuminate\Database\Schema\Blueprint;
-use Illuminate\Support\Facades\Schema;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
 
-class CreatePromocionsTable extends Migration
+class Promocion extends Model
 {
-    public function up()
-    {
-        Schema::create('promocions', function (Blueprint $table) {
-            $table->id();
-            $table->string('titulo');
-            $table->text('descripcion');
-            $table->string('imagen');
-            $table->timestamps();
-        });
-    }
+    use HasFactory;
 
-    public function down()
-    {
-        Schema::dropIfExists('promocions');
-    }
+    protected $fillable = ['titulo', 'descripcion', 'foto'];
 }
 
