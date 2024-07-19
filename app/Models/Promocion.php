@@ -9,6 +9,9 @@ class Promocion extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['titulo', 'descripcion', 'foto'];
+    protected $fillable = ['titulo', 'descripcion', 'imagen'];
+
+    // Especifica el nombre de la tabla si no sigue la convención de nombres pluralizados
+    protected $table = 'promociones';
 }
 

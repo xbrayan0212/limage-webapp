@@ -14,28 +14,29 @@ class PromocionController extends Controller
     }
 
     public function store(Request $request)
-    {
-        $request->validate([
-            'titulo' => 'required',
-            'descripcion' => 'required',
-            'foto' => 'required|image',
-        ]);
+{
+    $request->validate([
+        'titulo' => 'required',
+        'descripcion' => 'required',
+        'imagen' => 'required|image',
+    ]);
 
-        $path = $request->file('foto')->store('promociones', 'public');
+    $path = $request->file('imagen')->store('promociones', 'public');
 
-        Promocion::create([
-            'titulo' => $request->titulo,
-            'descripcion' => $request->descripcion,
-            'foto' => $path,
-        ]);
+    Promocion::create([
+        'titulo' => $request->titulo,
+        'descripcion' => $request->descripcion,
+        'imagen' => $path,
+    ]);
 
-        return redirect()->route('promociones.index')->with('success', 'Promoción creada con éxito');
-    }
+    return redirect()->route('promociones.index')->with('success', 'Promoción creada con éxito');
+}
+
 
     public function destroy(Promocion $promocion)
     {
-        if (file_exists(storage_path('app/public/' . $promocion->foto))) {
-            unlink(storage_path('app/public/' . $promocion->foto));
+        if (file_exists(storage_path('app/public/' . $promocion->imagen))) {
+            unlink(storage_path('app/public/' . $promocion->imagen));
         }
 
         $promocion->delete();

@@ -10,6 +10,7 @@ use App\Http\Controllers\CitaController;
 use App\Http\Controllers\PromocionController;
 use App\Http\Controllers\users\CitasController;
 use App\Http\Controllers\users\ServiciosPageController;
+use App\Http\Controllers\users\PromocionesPageController;
 
 Route::get('/', function () {
 	return view('welcome');
@@ -65,3 +66,6 @@ Route::post('/submit-form', [CitasController::class, 'submitForm'])->name('submi
 
 /*pagina de servicios rutas*/
 Route::get('users/servicio', [ServiciosPageController::class,'create'])->name('users.servicios');
+
+/*pagina de promociones*/
+Route::get('users/promociones', [PromocionesPageController::class, 'create'])->name('users.promociones');
