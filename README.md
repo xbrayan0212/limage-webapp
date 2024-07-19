@@ -36,7 +36,7 @@ Esta aplicación está construida con Laravel 11 y utiliza Vite para la gestión
 2. Cambia al directorio del proyecto:
 
     ```bash
-    cd limage-webapp
+    cd tu-repositorio
     ```
 
 3. Instala las dependencias de Composer:
@@ -65,97 +65,11 @@ Esta aplicación está construida con Laravel 11 y utiliza Vite para la gestión
 
 7. Configura tu archivo `.env` con las credenciales de tu base de datos.
 
-8. Ejecuta las migraciones en orden:
+8. Ejecuta las migraciones:
 
-   ```bash
-   php artisan migrate:reset
-   ```
-
-    Ejecuta las migraciones en el siguiente orden para evitar conflictos con claves foráneas:
-
-- Crear `tipos_tx`
-
-  ```bash
-   # Copia el path relativo del archivo de migración y pégalo aquí:
-  php artisan migrate --path=/database/migrations/2024_06_22_000000_create_tipos_tx_table.php
-  ```
-
-- Crear `empleados`
-
-  ```bash
-  # Copia el path relativo del archivo de migración y pégalo aquí:
-  php artisan migrate --path=/database/migrations/2024_06_22_000001_create_empleados_table.php
-  ```
-
-- Crear `servicio`
-
-  ```bash
-  # Copia el path relativo del archivo de migración y pégalo aquí:
-  php artisan migrate --path=/database/migrations/2024_06_22_000002_create_servicio_table.php
-  ```
-
-- Crear `forma_pago`
-
-  ```bash
-  # Copia el path relativo del archivo de migración y pégalo aquí:
-  php artisan migrate --path=/database/migrations/2024_06_22_000003_create_forma_pago_table.php
-  ```
-
-- Crear `proveedores`
-
-  ```bash
-  # Copia el path relativo del archivo de migración y pégalo aquí:
-  php artisan migrate --path=/database/migrations/2024_06_22_000004_create_proveedores_table.php
-  ```
-
-- Crear `clientes`
-
-  ```bash
-  # Copia el path relativo del archivo de migración y pégalo aquí:
-  php artisan migrate --path=/database/migrations/2024_06_22_000005_create_clientes_table.php
-  ```
-
-- Crear `productos`
-
-  ```bash
-  # Copia el path relativo del archivo de migración y pégalo aquí:
-  php artisan migrate --path=/database/migrations/2024_06_22_000006_create_productos_table.php
-  ```
-
-- Crear `transaccion`
-
-  ```bash
-  # Copia el path relativo del archivo de migración y pégalo aquí:
-  php artisan migrate --path=/database/migrations/2024_06_22_000007_create_transaccion_table.php
-  ```
-
-- Crear `registro_tx_empleados`
-
-  ```bash
-  # Copia el path relativo del archivo de migración y pégalo aquí:
-  php artisan migrate --path=/database/migrations/2024_06_22_000008_create_registro_tx_empleados_table.php
-  ```
-
-- Crear `agendar_cita`
-
-  ```bash
-  # Copia el path relativo del archivo de migración y pégalo aquí:
-  php artisan migrate --path=/database/migrations/2024_06_22_000009_create_agendar_cita_table.php
-  ```
-
-- Crear `reporte_financiero`
-
-  ```bash
-  # Copia el path relativo del archivo de migración y pégalo aquí:
-  php artisan migrate --path=/database/migrations/2024_06_22_000010_create_reporte_financiero_table.php
-  ```
-
-- Crear `comprobante_digital`
-
-  ```bash
-  # Copia el path relativo del archivo de migración y pégalo aquí:
-  php artisan migrate --path=/database/migrations/2024_06_22_000011_create_comprobante_digital_table.php
-  ```
+    ```bash
+    php artisan migrate
+    ```
 
 9. Ejecuta Vite para el desarrollo:
 
@@ -168,6 +82,18 @@ Esta aplicación está construida con Laravel 11 y utiliza Vite para la gestión
     ```bash
     php artisan serve
     ```
+
+## Documentación de Carpetas Importantes
+
+En esta sección se describe la estructura de las carpetas más importantes del proyecto, proporcionando hipervínculos para facilitar la navegación:
+
+- **[app](./app)**: Contiene el código principal de la aplicación, incluyendo controladores, modelos y servicios.
+- **[resources](./resources)**: Almacena las vistas de Blade, archivos de lenguaje y activos sin procesar como imágenes y archivos de CSS/JavaScript.
+- **[routes](./routes)**: Contiene todos los archivos de rutas del proyecto, incluyendo `web.php` y `api.php`.
+- **[database](./database)**: Incluye migraciones, fábricas de modelos y seeders para poblar la base de datos con datos iniciales.
+- **[public](./public)**: La carpeta donde se almacenan los activos públicos accesibles, como imágenes, archivos de JavaScript y CSS compilados.
+- **[config](./config)**: Contiene todos los archivos de configuración del proyecto.
+- **[tests](./tests)**: Carpeta destinada a las pruebas unitarias y funcionales de la aplicación.
 
 ## Creación de Ramas
 
