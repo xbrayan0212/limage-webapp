@@ -18,7 +18,7 @@
                 <div class="hidden md:flex md:items-center md:space-x-4 ms-10">
                     <a href="{{ route('agendarCita') }}" class="text-black hover:text-red-500 transition text-sm">Agendar Cita</a>
                     <a href="{{ route('users.servicios') }}" class="text-black hover:text-red-500 transition text-sm">Servicios</a>
-                    <a href="#" class="text-black hover:text-red-500 transition text-sm">Promociones</a>
+                    <a href="{{ route('users.promociones') }}" class="text-black hover:text-red-500 transition text-sm">Promociones</a>
                 </div>
             </div>
             <!-- User Authentication Links -->

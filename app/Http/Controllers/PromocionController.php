@@ -2,32 +2,45 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Promocion;
 use Illuminate\Http\Request;
 
 class PromocionController extends Controller
 {
-    public function create()
+    public function index()
     {
-        return view('promociones.create');
+        $promociones = Promocion::all();
+        return view('admin.promociones', compact('promociones'));
     }
 
     public function store(Request $request)
+{
+    $request->validate([
+        'titulo' => 'required',
+        'descripcion' => 'required',
+        'imagen' => 'required|image',
+    ]);
+
+    $path = $request->file('imagen')->store('promociones', 'public');
+
+    Promocion::create([
+        'titulo' => $request->titulo,
+        'descripcion' => $request->descripcion,
+        'imagen' => $path,
+    ]);
+
+    return redirect()->route('promociones.index')->with('success', 'Promoción creada con éxito');
+}
+
+
+    public function destroy(Promocion $promocion)
     {
-        // Validar y manejar la subida del archivo
-        $request->validate([
-            'titulo' => 'required|string|max:255',
-            'descripcion' => 'required|string',
-            'foto' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
-        ]);
-
-        if ($request->hasFile('foto')) {
-            $file = $request->file('foto');
-            $filename = time() . '.' . $file->getClientOriginalExtension();
-            $file->move(public_path('images/promociones'), $filename);
-
-            // Aquí puedes almacenar el nombre del archivo en la base de datos si es necesario
+        if (file_exists(storage_path('app/public/' . $promocion->imagen))) {
+            unlink(storage_path('app/public/' . $promocion->imagen));
         }
 
-        return redirect()->route('promociones.create')->with('success', 'Promoción subida exitosamente');
+        $promocion->delete();
+
+        return redirect()->route('promociones.index')->with('success', 'Promoción eliminada con éxito');
     }
 }
