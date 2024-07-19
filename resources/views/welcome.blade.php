@@ -29,9 +29,11 @@
         <h2 class="text-xl md:text-3xl font-serif text-gray-800">
             Salon & supply
         </h2>
-        <button class="text-sm md:text-base px-4 py-2 bg-gray-400 text-gray-800 rounded-md hover:bg-gray-500">
-            Ver nuestros Servicios
-        </button>
+        <div class="mt-5 inline-block">
+            <a href="{{ route('users.servicios') }}" class="text-sm md:text-base px-4 py-2 bg-gray-400 text-gray-800 rounded-md hover:bg-gray-500">
+                Ver nuestros Servicios
+            </a>
+        </div>
     </div>
 </main>
 

@@ -6,6 +6,7 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ServicioController;
 use App\Http\Controllers\users\CitaController;
+use App\Http\Controllers\users\ServiciosPageController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -71,3 +72,6 @@ Route::get('/user/dashboard', [UserController::class, 'index'])->name('user.dash
 Route::get('users/agendar-cita', [CitaController::class, 'create'])->name('users.agendarCita');
 Route::get('/users/agendarCita', [CitaController::class, 'showForm'])->name('agendarCita');
 Route::post('/submit-form', [CitaController::class, 'submitForm'])->name('submitForm');
+
+/*pagina de servicios rutas*/
+Route::get('users/servicio', [ServiciosPageController::class,'create'])->name('users.servicios');
