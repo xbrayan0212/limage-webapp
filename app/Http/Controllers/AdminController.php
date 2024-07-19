@@ -11,6 +11,7 @@ use App\Models\Transaccion;
 use Illuminate\Http\Request;
 use App\Mail\ComprobanteMailable;
 use App\Models\ComprobanteDigital;
+use Barryvdh\DomPDF\Facade\Pdf as FacadePdf;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Storage;
 
@@ -41,11 +42,20 @@ class AdminController extends Controller
 
 
 		$transacciones = $query->with(['empleado', 'servicio', 'tipoTX'])->get();
+		
+		// Calcular el monto total descontado
+    $transacciones->each(function($transaccion) {
+			$transaccion->monto_descuento = $transaccion->descuento_producto * $transaccion->precio_servicio;
+		});
+
+		// Calcular el total de todos los descuentos
+		$totalDescuentos = $transacciones->sum('monto_descuento');
+
 
 		$trabajadoras = Empleado::all();
 		$tipos_tx = TipoTX::all();
 
-		return view('admin.dashboard', compact('transacciones', 'trabajadoras', 'tipos_tx'));
+		return view('admin.dashboard', compact('transacciones', 'trabajadoras', 'tipos_tx', 'totalDescuentos'));
 	}
 
 	public function citas()
@@ -70,7 +80,8 @@ class AdminController extends Controller
 
 	public function reporte()
 	{
-		return view('admin.reporte');
+		$empleados = Empleado::where('status', 'activa')->get();
+		return view('admin.reporte', compact('empleados'));
 	}
 
 	public function servicios()
@@ -137,4 +148,126 @@ class AdminController extends Controller
 
 		return redirect()->back()->with('success', 'Comprobante enviado exitosamente.');
 	}
+
+	public function generarPDF(Request $request)
+{
+    $request->validate([
+        'fecha_inicio' => 'required|date',
+        'fecha_final' => 'required|date|after_or_equal:fecha_inicio',
+    ], [
+        'fecha_final.after_or_equal' => 'La fecha final debe ser mayor o igual a la fecha de inicio.',
+    ]);
+
+    $query = Transaccion::query();
+
+    if ($request->filled('idEmpleado')) {
+        $query->where('idEmpleado', $request->idEmpleado);
+    }
+
+    if ($request->filled('fecha_inicio') && $request->filled('fecha_final')) {
+        $query->whereBetween('fecha', [$request->fecha_inicio, $request->fecha_final]);
+    }
+
+    $transacciones = $query->with(['empleado', 'servicio'])->get();
+
+    // Agrupar transacciones por día y calcular totales
+    $totalesDiarios = $transacciones->groupBy(function ($date) {
+        return \Carbon\Carbon::parse($date->fecha)->format('Y-m-d');
+    })->map(function ($day) {
+        return [
+            'propina' => $day->sum('propina'),
+            'efectivo' => $day->where('idTipoTX', 1)->sum('total_transaccion'),
+            'yappy' => $day->where('idTipoTX', 2)->sum('total_transaccion'),
+            'visa' => $day->where('idTipoTX', 3)->sum('total_transaccion'),
+            'mastercard' => $day->where('idTipoTX', 4)->sum('total_transaccion'),
+            'descuento_productos' => $day->sum(function($transaccion) {
+                return $transaccion->descuento_producto * $transaccion->precio_servicio;
+            }),
+            'total' => $day->sum('total_transaccion'),
+        ];
+    });
+
+    // Calcular los totales acumulados
+    $totalesAcumulados = [
+        'propina' => $totalesDiarios->sum('propina'),
+        'efectivo' => $totalesDiarios->sum('efectivo'),
+        'yappy' => $totalesDiarios->sum('yappy'),
+        'visa' => $totalesDiarios->sum('visa'),
+        'mastercard' => $totalesDiarios->sum('mastercard'),
+        'descuento_productos' => $totalesDiarios->sum('descuento_productos'),
+        'total' => $totalesDiarios->sum('total'),
+    ];
+
+    $data = [
+        'transacciones' => $transacciones,
+        'fecha_inicio' => $request->fecha_inicio,
+        'fecha_final' => $request->fecha_final,
+        'totalesDiarios' => $totalesDiarios,
+        'totalesAcumulados' => $totalesAcumulados,
+    ];
+
+    $pdf = FacadePdf::loadView('admin.reporte_financiero_pdf', $data)->setPaper('a4', 'landscape');
+    return $pdf->download('reporte_financiero.pdf');
+}
+
+
+	public function consultarReporte(Request $request)
+	{
+			$request->validate([
+					'fecha_inicio' => 'required|date',
+					'fecha_final' => 'required|date|after_or_equal:fecha_inicio',
+			], [
+					'fecha_final.after_or_equal' => 'La fecha final debe ser mayor o igual a la fecha de inicio.',
+			]);
+	
+			$query = Transaccion::query();
+	
+			if ($request->filled('idEmpleado')) {
+					$query->where('idEmpleado', $request->idEmpleado);
+			}
+	
+			if ($request->filled('fecha_inicio') && $request->filled('fecha_final')) {
+					$query->whereBetween('fecha', [$request->fecha_inicio, $request->fecha_final]);
+			}
+	
+			$transacciones = $query->with(['empleado', 'servicio'])->get();
+	
+			// Agrupar transacciones por día y calcular totales
+			$totalesDiarios = $transacciones->groupBy(function ($date) {
+					return \Carbon\Carbon::parse($date->fecha)->format('Y-m-d');
+			})->map(function ($day) {
+					return [
+							'propina' => $day->sum('propina'),
+							'efectivo' => $day->where('idTipoTX', 1)->sum('total_transaccion'),
+							'yappy' => $day->where('idTipoTX', 2)->sum('total_transaccion'),
+							'visa' => $day->where('idTipoTX', 3)->sum('total_transaccion'),
+							'mastercard' => $day->where('idTipoTX', 4)->sum('total_transaccion'),
+							'descuento_productos' => $day->sum(function($transaccion) {
+                return $transaccion->descuento_producto * $transaccion->precio_servicio;
+            	}),
+							'total' => $day->sum('total_transaccion'),
+					];
+			});
+	
+			// Calcular los totales acumulados
+			$totalesAcumulados = [
+					'propina' => $totalesDiarios->sum('propina'),
+					'efectivo' => $totalesDiarios->sum('efectivo'),
+					'yappy' => $totalesDiarios->sum('yappy'),
+					'visa' => $totalesDiarios->sum('visa'),
+					'mastercard' => $totalesDiarios->sum('mastercard'),
+					'descuento_productos' => $totalesDiarios->sum('descuento_productos'),
+					'total' => $totalesDiarios->sum('total'),
+			];
+	
+			$empleados = Empleado::where('status', 'activa')->get();
+	
+			return view('admin.reporte', compact('totalesDiarios', 'totalesAcumulados', 'empleados'))->with([
+					'fecha_inicio' => $request->fecha_inicio,
+					'fecha_final' => $request->fecha_final,
+					'idEmpleado' => $request->idEmpleado
+			]);
+	}
+	
+	
 }
