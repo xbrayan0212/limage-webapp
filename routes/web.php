@@ -8,6 +8,8 @@ use App\Http\Controllers\ServicioController;
 use App\Http\Controllers\TransaccionController;
 use App\Http\Controllers\CitaController;
 use App\Http\Controllers\PromocionController;
+use App\Http\Controllers\users\CitasController;
+use App\Http\Controllers\users\ServiciosPageController;
 
 Route::get('/', function () {
 	return view('welcome');
@@ -29,8 +31,13 @@ Route::get('servicio/create', [ServicioController::class, 'create'])->name('serv
 Route::post('servicio', [ServicioController::class, 'store'])->name('servicio.store');
 
 Route::get('/dashboard', function () {
-	return view('dashboard');
+    return view('welcome');
 })->middleware(['auth', 'verified'])->name('dashboard');
+
+Route::get('/', function () {
+    return view('welcome');
+})->name('home');
+
 
 Route::middleware('auth')->group(function () {
 	Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
@@ -49,3 +56,10 @@ Route::get('/admin/citas', [CitaController::class, 'index'])->name('admin.citas'
 
 Route::get('/promociones', 'PromocionController@create')->name('promociones.create');
 Route::post('/promociones', 'PromocionController@store')->name('promociones.store');
+/*agendar cita rutas*/
+Route::get('users/agendar-cita', [CitasController::class, 'create'])->name('users.agendarCita');
+Route::get('/users/agendarCita', [CitasController::class, 'showForm'])->name('agendarCita');
+Route::post('/submit-form', [CitasController::class, 'submitForm'])->name('submitForm');
+
+/*pagina de servicios rutas*/
+Route::get('users/servicio', [ServiciosPageController::class,'create'])->name('users.servicios');
