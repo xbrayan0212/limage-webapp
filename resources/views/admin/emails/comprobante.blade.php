@@ -4,7 +4,7 @@
     <title>Comprobante</title>
 </head>
 <body>
-    <p>Hola,</p>
+    <p>Hola, querido cliente</p>
     <p>Adjunto encontrarás tu comprobante de pago. Aquí tienes los detalles:</p>
     <ul>
         <li><strong>Nombre de la Trabajadora:</strong> {{ $data['nombreTrabajadora'] }}</li>

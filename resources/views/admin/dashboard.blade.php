@@ -4,7 +4,7 @@
 <div class="w-full flex flex-col h-screen overflow-y-hidden">
 		<main class="w-full flex-grow p-4">
 				<div class="w-full mt-12">
-					<div class="bg-white rounded-lg p-4 drop-shadow-md">
+					<div class="bg-white rounded-lg p-4 shadow-md">
 						<h1 class="pb-3 text-3xl text-center font-bold">Transacciones Diarias</h1>
 						<form method="GET" action="{{ route('admin.dashboard') }}" class="mb-4">
 							<div class="flex space-x-4">

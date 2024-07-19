@@ -16,9 +16,9 @@
                 </div>
                 <!-- Links visible only on large screens -->
                 <div class="hidden md:flex md:items-center md:space-x-4 ms-10">
-                    <a href="{{ route('agendarCita') }}" class="text-black hover:text-red-500 transition text-sm">Agendar Cita</a>
-                    <a href="{{ route('users.servicios') }}" class="text-black hover:text-red-500 transition text-sm">Servicios</a>
-                    <a href="{{ route('users.promociones') }}" class="text-black hover:text-red-500 transition text-sm">Promociones</a>
+                    <a href="{{ route('agendarCita') }}" class="text-black font-bold hover:text-violet-800 transition text-sm">Agendar Cita</a>
+                    <a href="{{ route('users.servicios') }}" class="text-black font-bold hover:text-violet-800 transition text-sm">Servicios</a>
+                    <a href="{{ route('users.promociones') }}" class="text-black font-bold hover:text-violet-800 transition text-sm">Promociones</a>
                 </div>
             </div>
             <!-- User Authentication Links -->
@@ -54,11 +54,11 @@
                             </x-dropdown>
                         </div>
                     @else
-                        <a href="{{ route('login') }}" class="text-black hover:text-red-500 border border-transparent rounded px-3 py-2 transition hover:border-red-500 text-sm">
+                        <a href="{{ route('login') }}" class="text-black font-bold hover:text-violet-800 border border-transparent rounded px-3 py-2 transition hover:border-violet-800 text-sm">
                             Iniciar Sesión
                         </a>
                         @if (Route::has('register'))
-                            <a href="{{ route('register') }}" class="text-black hover:text-red-500 border border-transparent rounded px-3 py-2 transition hover:border-red-500 text-sm">
+                            <a href="{{ route('register') }}" class="text-black font-bold hover:text-violet-800 border border-transparent rounded px-3 py-2 transition hover:border-violet-800 text-sm">
                                 Registro
                             </a>
                         @endif
@@ -80,8 +80,8 @@
     <!-- Responsive Navigation Menu -->
     <div :class="{'block': open, 'hidden': ! open}" class="hidden md:hidden">
         <div class="pt-2 pb-3 space-y-1">
-            <a href="#" class="block px-3 py-2 rounded-md text-base font-medium text-black hover:text-red-500 transition text-sm">Promociones</a>
-            <a href="{{ route('agendarCita') }}" class="text-black hover:text-red-500 transition text-sm">Agendar Cita</a>
+            <a href="#" class="block px-3 py-2 rounded-md text-base font-medium text-black hover:text-violet-500 transition text-sm">Promociones</a>
+            <a href="{{ route('agendarCita') }}" class="block px-3 py-2 rounded-md font-medium text-black hover:text-violet-500 transition text-sm">Agendar Cita</a>
         </div>
 
         @if (Route::has('login'))
@@ -94,11 +94,11 @@
                     </div>
                 </div>
             @else
-                <a href="{{ route('login') }}" class="block px-3 py-2 rounded-md text-base font-medium text-black hover:text-red-500 border border-transparent transition hover:border-red-500 text-sm">
+                <a href="{{ route('login') }}" class="block px-3 py-2 rounded-md text-base font-medium text-black hover:text-violet-500 border border-transparent transition hover:border-violet-500 text-sm">
                     Iniciar Sesión
                 </a>
                 @if (Route::has('register'))
-                    <a href="{{ route('register') }}" class="block px-3 py-2 rounded-md text-base font-medium text-black hover:text-red-500 border border-transparent transition hover:border-red-500 text-sm">
+                    <a href="{{ route('register') }}" class="block px-3 py-2 rounded-md text-base font-medium text-black hover:text-violet-500 border border-transparent transition hover:border-violet-500 text-sm">
                         Registro
                     </a>
                 @endif

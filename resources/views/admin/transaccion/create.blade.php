@@ -2,7 +2,7 @@
 
 @section('content')
 <div class="w-6/12 flex justify-center mt-4 mx-auto">
-	<main class="w-full flex p-4 bg-white rounded-lg drop-shadow-md">
+	<main class="w-full flex p-4 bg-white rounded-lg shadow-md">
 		<div class="w-full">
 			<h1 class="pb-3 text-3xl text-center font-bold">Registro de Transacciones</h1>
 
@@ -35,16 +35,16 @@
 										¡Éxito!
 									</h3>
 									<div class="mt-2">
-										<p class="text-sm text-gray-500">
+										<p class="text-md text-gray-500 font-semibold">
 											{{ session('success') }}
 										</p>
 									</div>
 								</div>
 							</div>
 						</div>
-						<div class="bg-gray-50 px-4 py-3 sm:px-6 sm:flex sm:flex-row-reverse">
+						<div class="bg-violet-50 px-4 py-3 sm:px-6 sm:flex sm:flex-row-reverse">
 							<button type="button"
-								class="mt-3 w-full inline-flex justify-center rounded-md border border-gray-300 shadow-sm px-4 py-2 bg-white text-base font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 sm:mt-0 sm:ml-3 sm:w-auto sm:text-sm"
+								class="mt-3 w-full inline-flex justify-center rounded-md border border-violet-300 shadow-sm px-4 py-2 bg-white text-base font-medium text-violet-700 hover:bg-violet-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 sm:mt-0 sm:ml-3 sm:w-auto sm:text-sm"
 								onclick="document.getElementById('successModal').style.display='none'">
 								Cerrar
 							</button>
@@ -53,6 +53,7 @@
 				</div>
 			</div>
 			@endif
+
 
 			<form action="{{ route('transaccion.store') }}" method="POST" class="flex flex-col items-center">
 				@csrf

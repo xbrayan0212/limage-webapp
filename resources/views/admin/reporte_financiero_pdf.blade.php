@@ -83,26 +83,26 @@
 				@foreach ($totalesDiarios as $fecha => $totales)
 				<tr>
 					<td>{{ $fecha }}</td>
-					<td>{{ $totales['propina'] }}</td>
-					<td>{{ $totales['efectivo'] }}</td>
-					<td>{{ $totales['yappy'] }}</td>
-					<td>{{ $totales['visa'] }}</td>
-					<td>{{ $totales['mastercard'] }}</td>
-					<td>{{ $totales['descuento_productos'] }}</td>
-					<td>{{ $totales['total'] }}</td>
+					<td>$ {{ $totales['propina'] }}</td>
+					<td>$ {{ $totales['efectivo'] }}</td>
+					<td>$ {{ $totales['yappy'] }}</td>
+					<td>$ {{ $totales['visa'] }}</td>
+					<td>$ {{ $totales['mastercard'] }}</td>
+					<td>$ {{ $totales['descuento_productos'] }}</td>
+					<td>$ {{ $totales['total'] }}</td>
 				</tr>
 				@endforeach
 			</tbody>
 			<tfoot class="footer">
 				<tr>
 					<td>Totales</td>
-					<td>{{ $totales['propina'] }}</td>
-					<td>{{ $totales['efectivo'] }}</td>
-					<td>{{ $totales['yappy'] }}</td>
-					<td>{{ $totales['visa'] }}</td>
-					<td>{{ $totales['mastercard'] }}</td>
-					<td>{{ $totales['descuento_productos'] }}</td>
-					<td>{{ $totales['total'] }}</td>
+					<td>$ {{ $totalesAcumulados['propina'] }}</td>
+					<td>$ {{ $totalesAcumulados['efectivo'] }}</td>
+					<td>$ {{ $totalesAcumulados['yappy'] }}</td>
+					<td>$ {{ $totalesAcumulados['visa'] }}</td>
+					<td>$ {{ $totalesAcumulados['mastercard'] }}</td>
+					<td>$ {{ $totalesAcumulados['descuento_productos'] }}</td>
+					<td>$ {{ $totalesAcumulados['total'] }}</td>
 				</tr>
 			</tfoot>
 		</table>

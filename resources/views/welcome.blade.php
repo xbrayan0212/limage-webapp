@@ -24,13 +24,13 @@
     </div>
     <div class="order-1 md:order-2 w-full md:w-1/2 text-center space-y-4">
         <h1 class="text-4xl md:text-6xl font-serif text-gray-800">
-            Bienvenidos a <br> L´ Image Beauty
+            Bienvenidos a <br> L'Image Beauty
         </h1>
         <h2 class="text-xl md:text-3xl font-serif text-gray-800">
             Salon & supply
         </h2>
-        <div class="mt-5 inline-block">
-            <a href="{{ route('users.servicios') }}" class="text-sm md:text-base px-4 py-2 bg-gray-400 text-gray-800 rounded-md hover:bg-gray-500">
+        <div class="m-5 inline-block">
+            <a href="{{ route('users.servicios') }}" class="text-lg md:text-base font-bold px-4 py-4 bg-violet-400 text-white rounded-md hover:bg-violet-500">
                 Ver nuestros Servicios
             </a>
         </div>

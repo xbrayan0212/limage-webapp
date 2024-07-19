@@ -3,7 +3,7 @@
 @section('content')
 <div class="w-8/12 flex flex-col mt-4">
 	<div class="w-full overflow-x-hidden flex">
-		<main class="w-full flex-grow p-4 bg-white rounded-lg drop-shadow-md">
+		<main class="w-full flex-grow p-4 bg-white rounded-lg shadow-md">
 			<div class="w-full">
 				<h1 class="pb-3 text-3xl text-center font-bold">Reporte Financiero</h1>
 
@@ -76,26 +76,26 @@
 								@foreach ($totalesDiarios as $fecha => $totales)
 								<tr class="hover:bg-gray-50 text-center">
 									<td class="py-2 px-4 border-b border-gray-200">{{ $fecha }}</td>
-									<td class="py-2 px-4 border-b border-gray-200">{{ $totales['propina'] }}</td>
-									<td class="py-2 px-4 border-b border-gray-200">{{ $totales['efectivo'] }}</td>
-									<td class="py-2 px-4 border-b border-gray-200">{{ $totales['yappy'] }}</td>
-									<td class="py-2 px-4 border-b border-gray-200">{{ $totales['visa'] }}</td>
-									<td class="py-2 px-4 border-b border-gray-200">{{ $totales['mastercard'] }}</td>
-									<td class="py-2 px-4 border-b border-gray-200">{{ $totales['descuento_productos'] }}</td>
-									<td class="py-2 px-4 border-b border-gray-200">{{ $totales['total'] }}</td>
+									<td class="py-2 px-4 border-b border-gray-200">$ {{ $totales['propina'] }}</td>
+									<td class="py-2 px-4 border-b border-gray-200">$ {{ $totales['efectivo'] }}</td>
+									<td class="py-2 px-4 border-b border-gray-200">$ {{ $totales['yappy'] }}</td>
+									<td class="py-2 px-4 border-b border-gray-200">$ {{ $totales['visa'] }}</td>
+									<td class="py-2 px-4 border-b border-gray-200">$ {{ $totales['mastercard'] }}</td>
+									<td class="py-2 px-4 border-b border-gray-200">$ {{ $totales['descuento_productos'] }}</td>
+									<td class="py-2 px-4 border-b border-gray-200">$ {{ $totales['total'] }}</td>
 								</tr>
 								@endforeach
 							</tbody>
 							<tfoot class="bg-gray-100 text-gray-800">
 								<tr class="text-center">
 									<td colspan="1" class="text-right font-bold py-2 px-4">Totales</td>
-									<td class="py-2 px-4">{{ $totalesAcumulados['propina'] }}</td>
-									<td class="py-2 px-4">{{ $totalesAcumulados['efectivo'] }}</td>
-									<td class="py-2 px-4">{{ $totalesAcumulados['yappy'] }}</td>
-									<td class="py-2 px-4">{{ $totalesAcumulados['visa'] }}</td>
-									<td class="py-2 px-4">{{ $totalesAcumulados['mastercard'] }}</td>
-									<td class="py-2 px-4">{{ $totalesAcumulados['descuento_productos'] }}</td>
-									<td class="py-2 px-4">{{ $totalesAcumulados['total'] }}</td>
+									<td class="py-2 px-4">$ {{ $totalesAcumulados['propina'] }}</td>
+									<td class="py-2 px-4">$ {{ $totalesAcumulados['efectivo'] }}</td>
+									<td class="py-2 px-4">$ {{ $totalesAcumulados['yappy'] }}</td>
+									<td class="py-2 px-4">$ {{ $totalesAcumulados['visa'] }}</td>
+									<td class="py-2 px-4">$ {{ $totalesAcumulados['mastercard'] }}</td>
+									<td class="py-2 px-4">$ {{ $totalesAcumulados['descuento_productos'] }}</td>
+									<td class="py-2 px-4">$ {{ $totalesAcumulados['total'] }}</td>
 								</tr>
 							</tfoot>
 						</table>

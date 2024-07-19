@@ -2,7 +2,7 @@
 
 @section('content')
 <div class="w-10/12 flex justify-center mt-4 mx-auto">
-	<main class="w-full flex p-4 bg-white rounded-lg drop-shadow-md">
+	<main class="w-full flex p-4 bg-white rounded-lg shadow-md">
 		<div class="w-full">
 			<h1 class="pb-3 text-3xl text-center font-bold">Citas Agendadas</h1>
 			<!-- Línea divisora -->
