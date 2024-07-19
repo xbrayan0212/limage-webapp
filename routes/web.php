@@ -21,6 +21,8 @@ Route::get('/admin/comprobante', [AdminController::class, 'comprobante'])->name(
 Route::get('/admin/reporte', [AdminController::class, 'reporte'])->name('admin.reporte');
 Route::get('/admin/servicios', [AdminController::class, 'servicios'])->name('admin.servicio.create');
 Route::post('admin/comprobante/{id}/enviar', [AdminController::class, 'enviarComprobante'])->name('admin.enviarComprobante');
+Route::post('reportes/financieros', [AdminController::class, 'generarPDF'])->name('admin.generarPDF');
+Route::post('reportes/financieros/consultar', [AdminController::class, 'consultarReporte'])->name('admin.consultarReporte');
 
 Route::get('transaccion/create', [TransaccionController::class, 'create'])->name('transaccion.create');
 Route::post('transaccion', [TransaccionController::class, 'store'])->name('transaccion.store');
@@ -43,9 +45,7 @@ require __DIR__ . '/auth.php';
 Route::get('/admin/dashboard', [AdminController::class, 'index'])->name('admin.dashboard')->middleware('admin');
 Route::get('/user/dashboard', [UserController::class, 'index'])->name('user.dashboard')->middleware('user');
 
-
 Route::get('/admin/citas', [CitaController::class, 'index'])->name('admin.citas');
-
 
 Route::get('/promociones', 'PromocionController@create')->name('promociones.create');
 Route::post('/promociones', 'PromocionController@store')->name('promociones.store');
