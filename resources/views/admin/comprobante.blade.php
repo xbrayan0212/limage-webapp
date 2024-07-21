@@ -69,7 +69,7 @@
 				</div>
 				@endif
 	
-			<div class="inline-block min-w-full overflow-hidden rounded-lg shadow-md">
+			<div class="inline-block min-w-full overflow-hidden rounded-lg">
 				<table class="min-w-full bg-white">
 					<thead class="bg-violet-950 text-white">
 						<tr>

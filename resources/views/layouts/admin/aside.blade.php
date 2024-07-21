@@ -18,14 +18,18 @@
 			<a href="{{ route('admin.comprobante') }}" class="flex items-center text-white opacity-100 bg-violet-950 hover:opacity-75 py-4 pl-6 nav-item my-4 rounded-md">
 				<i class="fa-solid fa-ticket mr-3"></i>
 				Comprobante
-		</a>
+			</a>
 			<a href="{{ route('admin.reporte') }}" class="flex items-center text-white opacity-100 bg-violet-950 hover:opacity-75 py-4 pl-6 nav-item my-4 rounded-md">
-					<i class="fas fa-tablet-alt mr-3"></i>
+				<i class="fa-solid fa-landmark mr-3"></i>
 					Reporte
 			</a>
-			<a href="{{ route('admin.servicio.create') }}" class="flex items-center text-white opacity-100 bg-violet-950 hover:opacity-75 py-4 pl-6 nav-item rounded-md">
+			<a href="{{ route('admin.servicio.create') }}" class="flex items-center text-white opacity-100 bg-violet-950 hover:opacity-75 py-4 pl-6 nav-item rounded-md my-4">
 					<i class="fa-solid fa-cart-shopping mr-3"></i>
 					Servicios
 			</a>
+			<a href="{{ route('admin.txempleado') }}" class="flex items-center text-white opacity-100 bg-violet-950 hover:opacity-75 py-4 pl-6 nav-item rounded-md">
+				<i class="fa-solid fa-user mr-3"></i>
+				Transacción Empleados
+		</a>
 	</nav>
 </aside>

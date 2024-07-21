@@ -26,6 +26,7 @@ Route::get('/admin/servicios', [AdminController::class, 'servicios'])->name('adm
 Route::post('admin/comprobante/{id}/enviar', [AdminController::class, 'enviarComprobante'])->name('admin.enviarComprobante');
 Route::post('reportes/financieros', [AdminController::class, 'generarPDF'])->name('admin.generarPDF');
 Route::post('reportes/financieros/consultar', [AdminController::class, 'consultarReporte'])->name('admin.consultarReporte');
+Route::get('/admin/txempleado', [AdminController::class, 'transaccionEmpleado'])->name('admin.txempleado');
 
 Route::get('transaccion/create', [TransaccionController::class, 'create'])->name('transaccion.create');
 Route::post('transaccion', [TransaccionController::class, 'store'])->name('transaccion.store');

@@ -269,5 +269,8 @@ class AdminController extends Controller
 			]);
 	}
 	
+	public function transaccionEmpleado(){
+		return view('admin.txempleado');
+	}
 	
 }
