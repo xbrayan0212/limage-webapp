@@ -182,10 +182,35 @@ Para mantener un historial de commits claro y consistente, seguiremos estas regl
 Este proyecto está bajo la Licencia MIT. Consulta el archivo [LICENSE](LICENSE) para más detalles.
 
 # Imagenes de referencia
+## Vista Administrador
+### Citas Agendadas
+![image](https://github.com/user-attachments/assets/be953dee-7e5e-48f7-b57f-51840cafa175)
+### Promociones
+![image](https://github.com/user-attachments/assets/ac8a7214-5cb3-4471-a5fe-f5a58350fe95)
+### Transacciones
+![image](https://github.com/user-attachments/assets/bcc1fab8-4d63-40d7-986f-726fddf73203)
+### Comprobante
+![image](https://github.com/user-attachments/assets/f7345c73-5ac5-40d6-a3fc-5d74c2192b8a)
+### Reporte Financiero
+![image](https://github.com/user-attachments/assets/973ca138-e16c-40cf-aa52-bc7bf4af98a2)
+### Servicio
+![image](https://github.com/user-attachments/assets/187cb584-9755-4e3a-9cee-39bf964edf6f)
+
+
+
+## Vista Usuario
 ![image](https://github.com/user-attachments/assets/07bddaa0-e3fa-49ff-93fd-e316e4c5990c)
 ### Pagina Incial
 ![image](https://github.com/user-attachments/assets/19fa9473-b2f1-4f3d-a63b-d7fc3ee2b86f)
 ![image](https://github.com/user-attachments/assets/9bc17e60-ba55-400f-8cd8-8d7156df0276)
 ![image](https://github.com/user-attachments/assets/5eb2b594-a026-4c8a-8178-b9d65c37fe6e)
+### Agendar Cita
+![image](https://github.com/user-attachments/assets/0be441a4-975e-4552-924a-a810a625b0ca)
+![image](https://github.com/user-attachments/assets/bf1c58d5-5f5d-4077-863c-448e51929748)
+### Servicios
+![image](https://github.com/user-attachments/assets/0551a04e-5bfd-4299-b22c-9b3c11b70089)
+![image](https://github.com/user-attachments/assets/51f14c90-5d39-4558-a035-5c653bc77b6a)
+### Promociones
+![image](https://github.com/user-attachments/assets/73fae65a-e0de-4ce4-9e92-9b77c81a9c41)
 
 
