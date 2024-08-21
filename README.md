@@ -180,3 +180,7 @@ Para mantener un historial de commits claro y consistente, seguiremos estas regl
 ## Licencia
 
 Este proyecto está bajo la Licencia MIT. Consulta el archivo [LICENSE](LICENSE) para más detalles.
+
+# Imagenes de referencia
+![image](https://github.com/user-attachments/assets/07bddaa0-e3fa-49ff-93fd-e316e4c5990c)
+
